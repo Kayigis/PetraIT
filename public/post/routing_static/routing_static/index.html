@@ -1,0 +1,324 @@
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #f8f5d7"
+  lang="en-us"
+>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>Routing Static - Petra&#39;s site</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  
+  <meta name="description" content="Routing Routing merupakan teknik yang digunakan untuk menghubungkan beberapa jaringan yang memiliki network address maupun teknologi yang berbeda-beda.
+Konsep Static Routing Sebelum mengkonfigurasikan routing statik, maka saya ingin menjelaskan sedikit tentang konsep routing statik. Ini dimaksudkan supaya Anda tidak kebingungan mana kala akan mengkonfigurasikan routing statik pada topologi jaringan berbeda
+Untuk memudahkan pemahaman tentang konsep routing statik, saya menggunakan topologi sederhana yang menggunakan dua router seperti terlihat pada gambar berikut" />
+  <meta name="author" content="Petra" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="http://localhost:1313/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="http://localhost:1313/theme.png" />
+
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://media.discordapp.net/attachments/830985195829985291/1223279830573781062/avatar.png?ex=6619471f&amp;is=6606d21f&amp;hm=3e9f6b3bcebdb38ba91c6620a1f63f21347ed718813d1f045e8036eefd1dab4d&amp;=&amp;format=webp&amp;quality=lossless&amp;width=350&amp;height=350" />
+  
+  
+
+  
+  
+  <link rel="preload" as="image" href="http://localhost:1313/github.svg" />
+  
+  
+
+  
+  
+  <script
+    defer
+    src="http://localhost:1313/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+
+  
+  <link rel="icon" href="http://localhost:1313/favicon.ico" />
+  <link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.124.0">
+
+  
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="http://localhost:1313/"
+      >Petra&#39;s site</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#f8f5d7'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/contact/"
+        >Contact</a
+      >
+      
+    </nav>
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:ml-12 lg:mt-0 lg:items-center lg:space-x-6"
+    >
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href="https://github.com/Kayigis"
+        target="_blank"
+        rel="me"
+      >
+        github
+      </a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">Routing Static</h1>
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>Mar 24, 2024</time>
+      
+      
+      
+      
+    </div>
+    
+  </header>
+
+  <section><h1 id="routing">Routing</h1>
+<p>Routing merupakan teknik yang digunakan untuk menghubungkan beberapa jaringan yang memiliki network address maupun teknologi yang berbeda-beda.</p>
+<h2 id="konsep-static-routing">Konsep Static Routing</h2>
+<p>Sebelum mengkonfigurasikan routing statik, maka saya ingin menjelaskan sedikit tentang konsep routing statik. Ini dimaksudkan supaya Anda tidak kebingungan mana kala akan mengkonfigurasikan routing statik pada topologi jaringan berbeda</p>
+<p>Untuk memudahkan pemahaman tentang konsep routing statik, saya menggunakan topologi sederhana yang menggunakan dua router seperti terlihat pada gambar berikut</p>
+<p><img src="/images/Topology1.png" alt="Topology1"></p>
+<p>Sebagai langkah awal, konfigurasikanlah IP Address pada setiap interface yang ada pada Router R1 dan R2</p>
+<p>Untuk melakukan teknik routing, Anda harus dapat membaca tabel routing. Tabel routing itu sendiri adalah tabel yang digunakan router sebagai pedoman untuk menuju suatu jaringan (network). Tabel ini dapat dianalogikan seperti peta yang akan digunakan oleh router. Router tidak akan dapat mengangkau suatu jaringan jika network address dari jaringan tersebut tidak ada dalam tabel routing. Tentunya, Anda akan kesulitan mencari suati lokasi jika lokasi tersebut tidak ada dalam peta</p>
+<p><img src="/images/Tabel_Routing.webp" alt="Tabel_Routing"></p>
+<p>Jika Anda perhatikan dengan seksama, tabel routing pada R1 tidak berisi informasi tentang network 192.168.2.0/24. Begitu juga dengan R2 yang tidak berisi informasi tentang 192.168.1.0/24. Ini mengakibatkan komputer 192.168.1.2 tidak dapat berhubungan dengan omputer 192.168.2.2</p>
+<p>Prinsip yang Anda gunakan dalam menerapkan routing statik adalah &ldquo;<strong><em>Mau ke mana?</em></strong>&rdquo; dan &ldquo;<strong><em>Lewat mana?</em></strong>&rdquo;. Sebagai langkah pertama, marilah kita jadikan R1 sebagian acuan terlebih dahulu. Jika melihat topologi, jika R1 ingin menuju network 192.168.2.0/24, maka R1 harus melewati 10.10.10.2 yang merupakan interface <em>ether1</em> dari R2. Dengan kata lain, 10.10.10.2 akan menjadi gatway bagi Router R1 jika ingin menuju network 192.168.2.0/24</p>
+<p>Bagaimana dengan R2? Jika R2 ingin menuju network 192.168.1.0/24 maka R2 harus melewati 10.10.10.1 yang merupakan interface <em>ether1</em> dari R1. Router R2 harus menggunakan 10.10.10.1 sebagai gateway untuk menuju network 192.168.1.0/24</p>
+<p>Setelah memahami dengan benar konsep &ldquo;<strong><em>Mau ke mana?</em></strong>&rdquo; dan &ldquo;<strong><em>Lewat mana?</em></strong>&rdquo;, maka tibalah saatnya Anda memberikan perintah-perintah konfigurasi routing statik baik pada R1 dan R2</p>
+<p>Adapun perintah yang dapat Anda gunakan pada R1, agar R1 mengenal network 192.168.2.0/24</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">[</span>admin@R1<span style="color:#f92672">]</span> &gt; ip route add dst-address<span style="color:#f92672">=</span>192.168.2.0/24 gateway 10.10.10.2
+</span></span></code></pre></div><p>Sedangkan untuk R2, perintah yang dapat Anda gunakan adalah sebagai berikut</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">[</span>admin@R2<span style="color:#f92672">]</span> &gt; ip route add dst-address<span style="color:#f92672">=</span>192.168.1.0/24 gateway 10.10.10.1
+</span></span></code></pre></div><p>Setelah konfigurasi routing statik selesai Anda lakukan, maka periksalah kembali tabel routing pada masing-masing router. Seharusnya tabel routing pada masing-masing router terlihat seperti berikut</p>
+<p><img src="/images/Route_Print.webp" alt="Route_Print"></p>
+<p>Anda dapat melihat tabel routing pada R1 telah lengkap, akrena telah berisi informasi network 192.168.2.0/24 dengan gateway 10.10.10.2. Begitu juga dengan tabel routing R2 yang telah memuat informasi network 192.168.1.0/24 dengan gateway 10.10.10.1. Jika tabel routing ini sudah lengkap, maka seharusnya komputer 192.168.1.2 sudah dapat berhubungan dengan komputer 192.168.2.2, demikian pula sebaliknya</p>
+<p>Pada saat Anda melakukan konfigurasi IP Address pada komputer 192.168.1.2, jangan lupa untuk mengkonfigurasikan 192.168.1.1 sebagai default gateway. Begitu juga dengan komputer 192.168.2.2, Anda harus mengkonifurasikan 192.168.2.1 sebagai default gateway bagi komputer tersebut.</p>
+<p>Makasih :D</p>
+<h2 id="source--mikrotik-kung-fu-kitab-2-by-rendra-towidjojo">Source = Mikrotik Kung Fu Kitab 2 by Rendra Towidjojo</h2>
+</section>
+
+  
+  
+
+  
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    <a
+      class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="http://localhost:1313/post/vlan/vlan/"
+      ><span class="mr-1.5">←</span><span>VLAN</span></a
+    >
+    
+    
+  </nav>
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2024
+    <a class="link" href="http://localhost:1313/">Petra&#39;s site</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >✎ Paper</a
+  >
+</footer>
+
+  </body>
+</html>

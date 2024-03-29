@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Petra&#39;s site</title>
+    <link>http://localhost:1313/post/</link>
+    <description>Recent content in Posts on Petra&#39;s site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 24 Mar 2024 23:15:26 +0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VLAN</title>
+      <link>http://localhost:1313/post/vlan/vlan/</link>
+      <pubDate>Sun, 24 Mar 2024 23:15:26 +0700</pubDate>
+      <guid>http://localhost:1313/post/vlan/vlan/</guid>
+      <description>Virtual LAN (VLAN) Virtual LAN (VLAN) adalah teknologi yang memungkinkan Anda untuk membagi satu broadcast domain menjadi beberapa broadcast domain, sehingga dalam satu switch bisa saja terdiri dari beberapa network. Host yang berbeda VLAN tidak akan tersambung sehingga meningkatkan security jaringan.&#xA;VLAN adalah fasilitas yang dimiliki oleh switch manageable, contohnya cisco. Pada switch unmanageable, port-port nya hanya dapat digunakan untuk koneksi ke network yang sama (satu network) sehingga tidak mendukung fasilitas VLAN.</description>
+    </item>
+    <item>
+      <title>Routing Static</title>
+      <link>http://localhost:1313/post/routing_static/routing_static/</link>
+      <pubDate>Sun, 24 Mar 2024 21:38:48 +0700</pubDate>
+      <guid>http://localhost:1313/post/routing_static/routing_static/</guid>
+      <description>Routing Routing merupakan teknik yang digunakan untuk menghubungkan beberapa jaringan yang memiliki network address maupun teknologi yang berbeda-beda.&#xA;Konsep Static Routing Sebelum mengkonfigurasikan routing statik, maka saya ingin menjelaskan sedikit tentang konsep routing statik. Ini dimaksudkan supaya Anda tidak kebingungan mana kala akan mengkonfigurasikan routing statik pada topologi jaringan berbeda&#xA;Untuk memudahkan pemahaman tentang konsep routing statik, saya menggunakan topologi sederhana yang menggunakan dua router seperti terlihat pada gambar berikut</description>
+    </item>
+  </channel>
+</rss>
