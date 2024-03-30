@@ -13,13 +13,13 @@ Sebelum mengkonfigurasikan routing statik, maka saya ingin menjelaskan sedikit t
 
 Untuk memudahkan pemahaman tentang konsep routing statik, saya menggunakan topologi sederhana yang menggunakan dua router seperti terlihat pada gambar berikut
 
-![Topology1](/images/Topology1.png)
+![Topology1](images/Topology1.png)
 
 Sebagai langkah awal, konfigurasikanlah IP Address pada setiap interface yang ada pada Router R1 dan R2
 
 Untuk melakukan teknik routing, Anda harus dapat membaca tabel routing. Tabel routing itu sendiri adalah tabel yang digunakan router sebagai pedoman untuk menuju suatu jaringan (network). Tabel ini dapat dianalogikan seperti peta yang akan digunakan oleh router. Router tidak akan dapat mengangkau suatu jaringan jika network address dari jaringan tersebut tidak ada dalam tabel routing. Tentunya, Anda akan kesulitan mencari suati lokasi jika lokasi tersebut tidak ada dalam peta
 
-![Tabel_Routing](/images/Tabel_Routing.webp)
+![Tabel_Routing](images/Tabel_Routing.webp)
 
 Jika Anda perhatikan dengan seksama, tabel routing pada R1 tidak berisi informasi tentang network 192.168.2.0/24. Begitu juga dengan R2 yang tidak berisi informasi tentang 192.168.1.0/24. Ini mengakibatkan komputer 192.168.1.2 tidak dapat berhubungan dengan omputer 192.168.2.2
 
@@ -41,7 +41,7 @@ Sedangkan untuk R2, perintah yang dapat Anda gunakan adalah sebagai berikut
 
 Setelah konfigurasi routing statik selesai Anda lakukan, maka periksalah kembali tabel routing pada masing-masing router. Seharusnya tabel routing pada masing-masing router terlihat seperti berikut
 
-![Route_Print](/images/Route_Print.webp)
+![Route_Print](images/Route_Print.webp)
 
 Anda dapat melihat tabel routing pada R1 telah lengkap, akrena telah berisi informasi network 192.168.2.0/24 dengan gateway 10.10.10.2. Begitu juga dengan tabel routing R2 yang telah memuat informasi network 192.168.1.0/24 dengan gateway 10.10.10.1. Jika tabel routing ini sudah lengkap, maka seharusnya komputer 192.168.1.2 sudah dapat berhubungan dengan komputer 192.168.2.2, demikian pula sebaliknya
 
