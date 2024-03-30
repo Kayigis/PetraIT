@@ -17,7 +17,7 @@ Buatlah topologi seperti pada gambar dibawah pada packet tracer. Konfigurasi VLA
 pada switch dengan VLAN10 berikan nama Marketing dan VLAN20 dengan nama
 Sales. 
 
-![TopologyVLAN](images/TopologyVLAN.png)
+![TopologyVLAN](https://raw.githubusercontent.com/Kayigis/capek/main/content/post/VLAN/images/TopologyVLAN.png)
 
 ```console
 Switch>enable
