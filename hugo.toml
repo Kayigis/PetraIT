@@ -12,7 +12,7 @@ title = "Petra's site"
   github = 'Kayigis'
   name = 'Petra'
   bio = '"It is finished"'
-  avatar = 'https://github.com/Kayigis/capek/blob/main/static/images/Avatars.webp'
+  avatar = 'https://raw.githubusercontent.com/Kayigis/capek/main/static/images/Avatars.webp'
 
 [menu]
 
