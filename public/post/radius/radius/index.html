@@ -1,0 +1,364 @@
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #f8f5d7"
+  lang="en-us"
+>
+  <head><script src="/capek/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=capek/livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>Cara Membuat Radius Server di Ubuntu 22.04 - Petra&#39;s site</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  
+  <meta name="description" content="Tutorial Membangun Radius Server Menggunakan FreeRADIUS di Ubuntu 22.04 FreeRADIUS adalah server RADIUS yang memungkinkan Anda untuk membuat server otentikasi bagi jaringan Anda, seperti jaringan Wi-Fi, yang dapat menangani banyak pengguna. Tutorial ini akan membimbing Anda dalam menginstal FreeRADIUS pada Ubuntu Server 22.04.
+Memulai Instalasi Langkah pertama adalah memastikan bahwa sistem Anda up-to-date. Anda dapat melakukannya dengan menjalankan perintah berikut di terminal:
+sudo apt update sudo apt upgrade -y Menginstal FreeRADIUS dan Dependencies Berikut adalah beberapa paket yang perlu Anda instal jika belum ada dalam sistem Anda." />
+  <meta name="author" content="Petra" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="http://localhost:1313/capek/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="http://localhost:1313/capek/theme.png" />
+
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://raw.githubusercontent.com/Kayigis/capek/main/static/images/Avatars.webp" />
+  
+  
+
+  
+  
+  <link rel="preload" as="image" href="http://localhost:1313/capek/github.svg" />
+  
+  
+
+  
+  
+  <script
+    defer
+    src="http://localhost:1313/capek/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+
+  
+  <link rel="icon" href="http://localhost:1313/capek/favicon.ico" />
+  <link rel="apple-touch-icon" href="http://localhost:1313/capek/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.124.0">
+
+  
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="http://localhost:1313/capek/"
+      >Petra&#39;s site</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#f8f5d7'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/capek/contact/"
+        >Contact</a
+      >
+      
+    </nav>
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:ml-12 lg:mt-0 lg:items-center lg:space-x-6"
+    >
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href="https://github.com/Kayigis"
+        target="_blank"
+        rel="me"
+      >
+        github
+      </a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">Cara Membuat Radius Server di Ubuntu 22.04</h1>
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>Aug 30, 2024</time>
+      
+      
+      
+      
+    </div>
+    
+  </header>
+
+  <section><h1 id="tutorial-membangun-radius-server-menggunakan-freeradius-di-ubuntu-2204">Tutorial Membangun Radius Server Menggunakan FreeRADIUS di Ubuntu 22.04</h1>
+<p>FreeRADIUS adalah server RADIUS yang memungkinkan Anda untuk membuat server otentikasi bagi jaringan Anda, seperti jaringan Wi-Fi, yang dapat menangani banyak pengguna. Tutorial ini akan membimbing Anda dalam menginstal FreeRADIUS pada Ubuntu Server 22.04.</p>
+<h2 id="memulai-instalasi">Memulai Instalasi</h2>
+<p>Langkah pertama adalah memastikan bahwa sistem Anda up-to-date. Anda dapat melakukannya dengan menjalankan perintah berikut di terminal:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update
+</span></span><span style="display:flex;"><span>sudo apt upgrade -y
+</span></span></code></pre></div><h3 id="menginstal-freeradius-dan-dependencies">Menginstal FreeRADIUS dan Dependencies</h3>
+<p>Berikut adalah beberapa paket yang perlu Anda instal jika belum ada dalam sistem Anda. Beberapa di antaranya adalah <code>php</code>, <code>mariadb</code>, dan <code>freeradius</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install php apache2 php-mbstring php-xml mariadb-server freeradius freeradius-mysql -y
+</span></span></code></pre></div><p>Anda mungkin perlu mengaktifkan beberapa modul Apache. Anda dapat melakukannya dengan menjalankan perintah berikut:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl enable --now apache2
+</span></span><span style="display:flex;"><span>sudo systemctl enable --now mariadb
+</span></span></code></pre></div><p>Setelah Apache diaktifkan, Anda dapat melanjutkan untuk mengkonfigurasi MariaDB (jika ini adalah instalasi pertama).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo mysql_secure_installation
+</span></span></code></pre></div><p>Ikuti instruksi yang muncul di layar untuk mengamankan MariaDB Anda.</p>
+<h2 id="mengatur-mariadb">Mengatur MariaDB</h2>
+<p>Setelah MariaDB terinstal, kita dapat mulai mengkonfigurasi database. Bergantung pada bagaimana Anda mengatur MariaDB, Anda mungkin perlu masuk sebagai root untuk menjalankan perintah SQL. Gunakan perintah berikut untuk masuk:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo mysql -u root -p
+</span></span></code></pre></div><p>Setelah Anda masuk, Anda perlu melakukan beberapa langkah berikut:</p>
+<ol>
+<li>Membuat database.</li>
+<li>Membuat user untuk FreeRADIUS.</li>
+<li>Memberikan hak akses pada user tersebut.</li>
+</ol>
+<p>Untuk membuat database, jalankan perintah <code>CREATE DATABASE</code> berikut:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> radius;
+</span></span></code></pre></div><p>Sekarang kita perlu membuat user untuk FreeRADIUS. Disarankan untuk menggunakan password yang aman.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">USER</span> <span style="color:#e6db74">&#39;radius&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;localhost&#39;</span> IDENTIFIED <span style="color:#66d9ef">BY</span> <span style="color:#e6db74">&#39;password_aman&#39;</span>;
+</span></span></code></pre></div><p>Untuk memberikan hak akses, jalankan perintah:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">ALL</span> <span style="color:#66d9ef">PRIVILEGES</span> <span style="color:#66d9ef">ON</span> radius.<span style="color:#f92672">*</span> <span style="color:#66d9ef">TO</span> <span style="color:#e6db74">&#39;radius&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;localhost&#39;</span>;
+</span></span></code></pre></div><p>Jalankan perintah berikut untuk memastikan hak akses diberikan secara penuh:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>FLUSH <span style="color:#66d9ef">PRIVILEGES</span>;
+</span></span><span style="display:flex;"><span>exit;
+</span></span></code></pre></div><h2 id="mengonfigurasi-freeradius-untuk-menggunakan-sql">Mengonfigurasi FreeRADIUS untuk Menggunakan SQL</h2>
+<p>Sekarang setelah FreeRADIUS terinstal, kita perlu memberi tahu FreeRADIUS untuk menulis login ke SQL database yang telah kita buat.</p>
+<p>Buka file konfigurasi:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano /etc/freeradius/3.0/mods-available/sql
+</span></span></code></pre></div><p>Cari baris yang dimulai dengan <code>driver = &quot;rlm_sql_mysql&quot;</code> dan hilangkan tanda komentar (hapus tanda <code>#</code> di depannya). Juga, pastikan Anda mengonfigurasi <code>server</code>, <code>login</code>, dan <code>password</code> dengan informasi yang sesuai:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>server = &#34;localhost&#34;
+</span></span><span style="display:flex;"><span>login = &#34;radius&#34;
+</span></span><span style="display:flex;"><span>password = &#34;password_aman&#34;
+</span></span></code></pre></div><p>Simpan perubahan dengan menekan <code>Ctrl + X</code>, kemudian <code>Y</code>, diikuti dengan <code>Enter</code>.</p>
+<h3 id="menyelesaikan-konfigurasi-freeradius">Menyelesaikan Konfigurasi FreeRADIUS</h3>
+<p>Aktifkan modul SQL dengan menjalankan perintah berikut:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ln -s /etc/freeradius/3.0/mods-available/sql /etc/freeradius/3.0/mods-enabled/
+</span></span><span style="display:flex;"><span>sudo systemctl restart freeradius
+</span></span></code></pre></div><h2 id="optional-instalasi-phpmyadmin">Optional: Instalasi PhpMyAdmin</h2>
+<p>Langkah ini bersifat opsional. Namun, disarankan untuk menginstal PhpMyAdmin untuk memudahkan manajemen database FreeRADIUS melalui antarmuka web. Anda dapat menginstalnya dengan menjalankan perintah berikut:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install phpmyadmin -y
+</span></span></code></pre></div><h2 id="penugasan-vlan-dinamis">Penugasan VLAN Dinamis</h2>
+<p>Jika Anda memiliki kebutuhan jaringan yang lebih kompleks, Anda dapat mengaktifkan VLAN dinamis. Ini dilakukan dengan menambahkan beberapa baris konfigurasi ke file FreeRADIUS.</p>
+<p>Buka file <code>/etc/freeradius/3.0/sites-enabled/default</code> dan tambahkan konfigurasi VLAN sesuai kebutuhan.</p>
+<h2 id="hal-yang-perlu-diketahui">Hal yang Perlu Diketahui</h2>
+<p>Pastikan untuk selalu restart FreeRADIUS setiap kali Anda melakukan perubahan konfigurasi. Ini dapat dilakukan dengan menjalankan perintah:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl restart freeradius
+</span></span></code></pre></div><h2 id="menghubungkan-ke-radius-server">Menghubungkan ke RADIUS Server</h2>
+<p>Terakhir, Anda perlu menghubungkan perangkat jaringan atau sistem otentikasi Anda ke server RADIUS yang baru saja Anda buat. Pastikan untuk menambahkan IP address dari perangkat Anda sebagai NAS (Network Access Server) di file konfigurasi FreeRADIUS.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano /etc/freeradius/3.0/clients.conf
+</span></span></code></pre></div><p>Tambahkan informasi perangkat Anda di file tersebut, simpan, dan restart FreeRADIUS.</p>
+<h2 id="bonus-migrasi-server-radius">Bonus: Migrasi Server RADIUS</h2>
+<p>Jika Anda memiliki server RADIUS lama dan ingin memigrasikan data ke server baru, Anda perlu menyalin file <code>.crt</code>, <code>.key</code>, dan file lainnya yang relevan ke server baru.</p>
+<hr>
+<p>Semoga tutorial ini bermanfaat dalam membantu Anda membangun server RADIUS di Ubuntu 22.04!</p>
+</section>
+
+  
+  
+
+  
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="http://localhost:1313/capek/post/vlan/vlan/"
+      ><span>VLAN</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2024
+    <a class="link" href="http://localhost:1313/capek/">Petra&#39;s site</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >✎ Paper</a
+  >
+</footer>
+
+  </body>
+</html>
